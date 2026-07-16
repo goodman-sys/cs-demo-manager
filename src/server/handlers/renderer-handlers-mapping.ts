@@ -362,7 +362,7 @@ export interface RendererMessageHandlers {
   [RendererClientMessageName.CapturePlayerView]: Handler<Game, CapturePlayerViewPayload>;
   [RendererClientMessageName.AnalyzeMatch]: Handler<AnalyzeMatchPayload, MatchAnalysisResult>;
   [RendererClientMessageName.AnalyzePlayer]: Handler<AnalyzePlayerPayload, MatchAnalysisResult>;
-  [RendererClientMessageName.GenerateCoachingReport]: Handler<GenerateCoachingReportPayload, ReadableStream<string>>;
+  [RendererClientMessageName.GenerateCoachingReport]: Handler<GenerateCoachingReportPayload>;
 }
 
 // Mapping between message names and server handlers sent from the Electron renderer process to the WebSocket server.
