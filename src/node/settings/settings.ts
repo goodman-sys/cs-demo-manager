@@ -172,6 +172,14 @@ type BanSettings = {
   ignoreBanBeforeFirstSeen: boolean;
 };
 
+export type AiSettings = {
+  provider: 'openai' | 'anthropic' | 'custom';
+  apiKey: string;
+  model: string;
+  customEndpoint: string;
+  language: 'zh' | 'en';
+};
+
 export type Settings = {
   schemaVersion: number;
   autoDownloadUpdates: boolean;
@@ -193,4 +201,5 @@ export type Settings = {
   teams: TeamsSettings;
   teamProfile: TeamProfileSettings;
   ban: BanSettings;
+  ai: AiSettings;
 };

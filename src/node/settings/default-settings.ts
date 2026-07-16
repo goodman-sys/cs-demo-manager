@@ -166,4 +166,11 @@ export const defaultSettings: Settings = {
   ban: {
     ignoreBanBeforeFirstSeen: true,
   },
+  ai: {
+    provider: 'openai',
+    apiKey: '',
+    model: 'gpt-4o',
+    customEndpoint: '',
+    language: 'zh',
+  },
 };
