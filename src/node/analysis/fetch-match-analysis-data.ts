@@ -116,6 +116,7 @@ export async function fetchMatchAnalysisData(matchChecksum: string): Promise<Pla
       averageMoneySpentPerRound: 0,
       utilityDamage: player.utilityDamage,
       enemiesFlashedCount: playerBlindsAsFlasher.filter((b) => b.flasherSide !== b.flashedSide).length,
+      avgKillDistance: 0,
       aim,
       entry,
       trade,

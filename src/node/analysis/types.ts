@@ -84,6 +84,7 @@ export type PlayerAnalysisData = {
   averageMoneySpentPerRound: number;
   utilityDamage: number;
   enemiesFlashedCount: number;
+  avgKillDistance: number;
   aim: AimAnalysisData;
   entry: EntryAnalysisData;
   trade: TradeAnalysisData;

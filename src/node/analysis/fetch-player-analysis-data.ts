@@ -333,6 +333,7 @@ export async function fetchPlayerAnalysisData(steamId: string, filters?: MatchFi
     averageMoneySpentPerRound: 0,
     utilityDamage: playerRow.utilityDamage,
     enemiesFlashedCount: blindData?.enemyBlinds ?? 0,
+    avgKillDistance: 0,
     aim,
     entry,
     trade,
@@ -369,6 +370,7 @@ function buildDefaultPlayerAnalysisData(steamId: string): PlayerAnalysisData {
     averageMoneySpentPerRound: 0,
     utilityDamage: 0,
     enemiesFlashedCount: 0,
+    avgKillDistance: 0,
     aim: {
       hitRate: 0,
       accuracy: 0,
