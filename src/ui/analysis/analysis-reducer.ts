@@ -77,3 +77,7 @@ export function selectCoachingReport(state: { analysis: AnalysisState }) {
 export function selectIsGeneratingReport(state: { analysis: AnalysisState }) {
   return state.analysis.isGeneratingReport;
 }
+
+export function selectAnalysisError(state: { analysis: AnalysisState }) {
+  return state.analysis.error;
+}
