@@ -18,8 +18,10 @@ import { teamsReducer } from '../teams/teams-reducer';
 import { teamReducer } from '../team/team-reducer';
 import { videosReducer } from '../videos/videos-reducer';
 import { camerasReducer } from '../cameras/cameras-reducer';
+import { analysisReducer } from 'csdm/ui/analysis/analysis-reducer';
 
 export const reducers = combineReducers({
+  analysis: analysisReducer,
   bootstrap: bootstrapReducer,
   matches: matchesReducer,
   demos: demosReducer,
