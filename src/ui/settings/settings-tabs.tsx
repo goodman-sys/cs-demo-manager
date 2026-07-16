@@ -44,6 +44,9 @@ export function SettingsTabs() {
       <SettingsCategoryButton category={SettingsCategory.Database}>
         <Trans>Database</Trans>
       </SettingsCategoryButton>
+      <SettingsCategoryButton category={SettingsCategory.AI}>
+        <Trans>AI</Trans>
+      </SettingsCategoryButton>
       <SettingsCategoryButton category={SettingsCategory.About}>
         <Trans>About</Trans>
       </SettingsCategoryButton>
