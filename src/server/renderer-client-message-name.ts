@@ -109,6 +109,9 @@ export const RendererClientMessageName = {
   FetchLastMigrations: 'fetch-last-migrations',
   ImportDataFromV2Backup: 'import-data-from-v2-backup',
   CapturePlayerView: 'capture-player-view',
+  AnalyzeMatch: 'analyze-match',
+  AnalyzePlayer: 'analyze-player',
+  GenerateCoachingReport: 'generate-coaching-report',
 } as const;
 
 export type RendererClientMessageName = (typeof RendererClientMessageName)[keyof typeof RendererClientMessageName];

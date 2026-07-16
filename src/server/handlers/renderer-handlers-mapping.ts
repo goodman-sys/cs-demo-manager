@@ -227,6 +227,13 @@ import { deleteRenownAccountHandler } from './renderer-process/renown/delete-ren
 import { updateCurrentRenownAccountHandler } from './renderer-process/renown/update-current-renown-account-handler';
 import type { RenownMatch } from 'csdm/common/types/renown-match';
 import { fetchLastRenownMatchesHandler } from './renderer-process/renown/fetch-last-renown-matches-handler';
+import { analyzeMatchHandler, type AnalyzeMatchPayload } from './renderer-process/analysis/analyze-match-handler';
+import { analyzePlayerHandler, type AnalyzePlayerPayload } from './renderer-process/analysis/analyze-player-handler';
+import {
+  generateCoachingReportHandler,
+  type GenerateCoachingReportPayload,
+} from './renderer-process/analysis/generate-coaching-report-handler';
+import type { MatchAnalysisResult } from 'csdm/node/analysis/types';
 
 export interface RendererMessageHandlers {
   [RendererClientMessageName.InitializeApplication]: Handler<void, InitializeApplicationSuccessPayload>;
@@ -353,6 +360,9 @@ export interface RendererMessageHandlers {
   [RendererClientMessageName.DeleteRenownAccount]: Handler<string, RenownAccount[]>;
   [RendererClientMessageName.UpdateCurrentRenownAccount]: Handler<string, RenownAccount[]>;
   [RendererClientMessageName.CapturePlayerView]: Handler<Game, CapturePlayerViewPayload>;
+  [RendererClientMessageName.AnalyzeMatch]: Handler<AnalyzeMatchPayload, MatchAnalysisResult>;
+  [RendererClientMessageName.AnalyzePlayer]: Handler<AnalyzePlayerPayload, MatchAnalysisResult>;
+  [RendererClientMessageName.GenerateCoachingReport]: Handler<GenerateCoachingReportPayload, ReadableStream<string>>;
 }
 
 // Mapping between message names and server handlers sent from the Electron renderer process to the WebSocket server.
@@ -466,4 +476,7 @@ export const rendererHandlers: RendererMessageHandlers = {
   [RendererClientMessageName.UpdateCurrentRenownAccount]: updateCurrentRenownAccountHandler,
   [RendererClientMessageName.WatchVideoSequences]: watchVideoSequencesHandler,
   [RendererClientMessageName.CapturePlayerView]: capturePlayerViewHandler,
+  [RendererClientMessageName.AnalyzeMatch]: analyzeMatchHandler,
+  [RendererClientMessageName.AnalyzePlayer]: analyzePlayerHandler,
+  [RendererClientMessageName.GenerateCoachingReport]: generateCoachingReportHandler,
 };
