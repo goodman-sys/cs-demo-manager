@@ -3,7 +3,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { MotionConfig } from 'motion/react';
 import { store } from 'csdm/ui/store/store';
 import { AppLoader } from './app-loader';
-import { LocaleProvider } from 'csdm/ui/bootstrap/locale-provider';
+import { LocaleProvider } from './locale-provider';
 import { ArgumentsProvider } from 'csdm/ui/bootstrap/arguments-provider';
 import { SettingsProvider } from 'csdm/ui/bootstrap/settings-provider';
 import { WebSocketProvider } from './web-socket-provider';
@@ -16,10 +16,10 @@ function App() {
   return (
     <ReduxProvider store={store}>
       <MotionConfig reducedMotion="user">
-        <SettingsProvider>
-          <LocaleProvider>
-            <ArgumentsProvider>
-              <ToastsProvider>
+        <LocaleProvider>
+          <ArgumentsProvider>
+            <ToastsProvider>
+              <SettingsProvider>
                 <WebSocketProvider>
                   <DialogProvider inertElementId={APP_ELEMENT_ID}>
                     <SettingsOverlayProvider>
@@ -27,10 +27,10 @@ function App() {
                     </SettingsOverlayProvider>
                   </DialogProvider>
                 </WebSocketProvider>
-              </ToastsProvider>
-            </ArgumentsProvider>
-          </LocaleProvider>
-        </SettingsProvider>
+              </SettingsProvider>
+            </ToastsProvider>
+          </ArgumentsProvider>
+        </LocaleProvider>
       </MotionConfig>
     </ReduxProvider>
   );
