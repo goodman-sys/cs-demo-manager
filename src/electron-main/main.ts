@@ -169,7 +169,7 @@ async function start() {
 
   if (IS_DEV) {
     const { installDevTools } = await import('./install-dev-tools');
-    await installDevTools();
+    installDevTools();
   }
 
   const quitApp = () => {
