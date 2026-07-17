@@ -16,10 +16,10 @@ export function LocaleProvider({ children }: Props) {
     const loadLocaleMessages = async () => {
       try {
         const folderName = getLocaleFolderName(locale);
-        const po = await import(`../../src/ui/translations/${folderName}/messages.po`);
+        const po = await import(`csdm/ui/translations/${folderName}/messages.po`);
         i18n.loadAndActivate({ locale, messages: po.messages });
       } catch {
-        const en = await import('../../src/ui/translations/en/messages.po');
+        const en = await import('csdm/ui/translations/en/messages.po');
         i18n.loadAndActivate({ locale: 'en', messages: en.messages });
       }
     };
