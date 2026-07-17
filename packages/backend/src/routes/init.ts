@@ -1,5 +1,6 @@
 /* oxlint-disable lingui/no-unlocalized-strings */
 import type { FastifyInstance } from 'fastify';
+import { defaultSettings } from 'csdm/node/settings/default-settings';
 import { getDatabase } from '../database/connection';
 
 export function registerInitRoutes(app: FastifyInstance) {
@@ -17,7 +18,7 @@ export function registerInitRoutes(app: FastifyInstance) {
       matchChecksums: matchChecksums.map((r) => r.checksum),
       maps,
       tags,
-      settings: {},
+      settings: defaultSettings,
       cameras: [],
       analyses: [],
       downloads: [],
