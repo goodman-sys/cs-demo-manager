@@ -7,12 +7,17 @@ import tailwindcss from '@tailwindcss/vite';
 
 const currentFolderPath = fileURLToPath(new URL('.', import.meta.url));
 const srcFolderPath = path.resolve(currentFolderPath, '../../src');
+const bootstrapPath = path.resolve(currentFolderPath, './src/bootstrap');
 
 export default defineConfig({
   root: currentFolderPath,
   resolve: {
     alias: {
       csdm: srcFolderPath,
+      // 覆盖需要 Web 化的 bootstrap 文件
+      'csdm/ui/bootstrap/web-socket-provider': path.resolve(bootstrapPath, 'web-socket-provider.tsx'),
+      'csdm/ui/hooks/use-web-socket-client': path.resolve(bootstrapPath, 'use-web-socket-client.ts'),
+      'csdm/ui/bootstrap/locale-provider': path.resolve(bootstrapPath, 'locale-provider.tsx'),
     },
   },
   define: {
