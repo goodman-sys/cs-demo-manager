@@ -1,0 +1,23 @@
+{
+  "name": "@csdm/backend",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "tsc --noEmit",
+    "dev": "tsx watch src/server.ts"
+  },
+  "dependencies": {
+    "@csdm/shared": "workspace:*",
+    "fastify": "^5.3.3",
+    "kysely": "0.29.3",
+    "pg": "8.22.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.2",
+    "@types/pg": "8.20.0",
+    "tsx": "^4.20.3",
+    "typescript": "6.0.3"
+  }
+}

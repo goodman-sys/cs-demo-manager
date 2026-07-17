@@ -3,6 +3,7 @@ minimumReleaseAge: 1440
 
 packages:
   - src/node/os/get-running-process-exit-code
+  - packages/*
 
 allowBuilds:
   electron-winstaller: true
