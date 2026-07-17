@@ -26,12 +26,12 @@ export default defineConfig({
     REACT_STRICT_MODE_ENABLED: false,
   },
   plugins: [
+    lingui(),
     react({
       babel: {
-        plugins: ['babel-plugin-react-compiler', '@lingui/babel-plugin-lingui-macro'],
+        plugins: ['babel-plugin-react-compiler'],
       },
     }),
-    lingui(),
     tailwindcss(),
   ],
   server: {
