@@ -5,7 +5,7 @@ import type { WebSocket } from 'ws';
 const clients = new Map<string, Set<WebSocket>>();
 
 export function registerWebSocketHandler(app: FastifyInstance) {
-  app.get('/ws', { websocket: true }, (socket, request) => {
+  app.get('/', { websocket: true }, (socket, request) => {
     const processType = (request.query as Record<string, string>).process ?? 'renderer';
 
     if (!clients.has(processType)) {

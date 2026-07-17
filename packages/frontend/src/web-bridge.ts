@@ -74,7 +74,7 @@ const webBridge = {
   unknownImageFilePath: '/static/images/maps/thumbnail_unknown.png',
   IMAGES_FOLDER_PATH: '/static/images',
   ADDITIONAL_ARGUMENTS: [] as string[],
-  WEB_SOCKET_SERVER_PORT: 0,
+  WEB_SOCKET_SERVER_PORT: window.location.port === '5173' ? 3000 : Number(window.location.port),
 
   getAppInformation: (): AppInformation => {
     return {
