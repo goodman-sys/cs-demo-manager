@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
 import { lingui } from '@lingui/vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -14,7 +14,6 @@ export default defineConfig({
   resolve: {
     alias: {
       csdm: srcFolderPath,
-      // 覆盖需要 Web 化的 bootstrap 文件
       'csdm/ui/bootstrap/web-socket-provider': path.resolve(bootstrapPath, 'web-socket-provider.tsx'),
       'csdm/ui/hooks/use-web-socket-client': path.resolve(bootstrapPath, 'use-web-socket-client.ts'),
       'csdm/ui/bootstrap/locale-provider': path.resolve(bootstrapPath, 'locale-provider.tsx'),
@@ -29,8 +28,7 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        presets: [reactCompilerPreset()],
-        plugins: ['@lingui/babel-plugin-lingui-macro'],
+        plugins: ['babel-plugin-react-compiler', '@lingui/babel-plugin-lingui-macro'],
       },
     }),
     lingui(),
