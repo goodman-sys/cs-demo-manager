@@ -4,6 +4,12 @@ import cors from '@fastify/cors';
 import { config } from './config';
 import { initDatabase, closeDatabase } from './database/connection';
 import { registerMatchRoutes } from './routes/matches';
+import { registerPlayerRoutes } from './routes/players';
+import { registerTeamRoutes } from './routes/teams';
+import { registerDemoRoutes } from './routes/demos';
+import { registerSearchRoutes } from './routes/search';
+import { registerSettingsRoutes } from './routes/settings';
+import { registerInitRoutes } from './routes/init';
 
 const server = Fastify({
   logger: {
@@ -19,6 +25,12 @@ server.get('/api/health', () => {
 
 // 路由注册
 registerMatchRoutes(server);
+registerPlayerRoutes(server);
+registerTeamRoutes(server);
+registerDemoRoutes(server);
+registerSearchRoutes(server);
+registerSettingsRoutes(server);
+registerInitRoutes(server);
 
 async function start() {
   initDatabase();
