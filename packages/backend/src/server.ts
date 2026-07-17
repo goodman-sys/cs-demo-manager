@@ -1,6 +1,7 @@
 /* oxlint-disable lingui/no-unlocalized-strings */
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+import websocket from '@fastify/websocket';
 import { config } from './config';
 import { initDatabase, closeDatabase } from './database/connection';
 import { registerMatchRoutes } from './routes/matches';
@@ -10,6 +11,7 @@ import { registerDemoRoutes } from './routes/demos';
 import { registerSearchRoutes } from './routes/search';
 import { registerSettingsRoutes } from './routes/settings';
 import { registerInitRoutes } from './routes/init';
+import { registerWebSocketHandler } from './ws/handler';
 
 const server = Fastify({
   logger: {
@@ -18,6 +20,8 @@ const server = Fastify({
 });
 
 await server.register(cors, { origin: true });
+await server.register(websocket);
+registerWebSocketHandler(server);
 
 server.get('/api/health', () => {
   return { status: 'ok' };
