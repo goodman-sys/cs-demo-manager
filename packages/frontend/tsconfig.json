@@ -2,11 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "../..",
     "jsx": "react-jsx",
     "paths": {
       "csdm/*": ["../../src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "../../types/**/*", "../../src/**/*.d.ts"]
 }
