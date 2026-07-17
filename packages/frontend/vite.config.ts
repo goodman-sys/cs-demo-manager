@@ -1,13 +1,23 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { lingui } from '@lingui/vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
+import babel, { defineRolldownBabelPreset } from '@rolldown/plugin-babel';
 
 const currentFolderPath = fileURLToPath(new URL('.', import.meta.url));
 const srcFolderPath = path.resolve(currentFolderPath, '../../src');
 const bootstrapPath = path.resolve(currentFolderPath, './src/bootstrap');
+
+const linguiPreset = defineRolldownBabelPreset({
+  preset: () => ({ plugins: ['@lingui/babel-plugin-lingui-macro'] }),
+  rolldown: {
+    filter: {
+      code: /from ['"]@lingui\/(?:react|core)\/macro['"]/,
+    },
+  },
+});
 
 export default defineConfig({
   root: currentFolderPath,
@@ -26,11 +36,10 @@ export default defineConfig({
     REACT_STRICT_MODE_ENABLED: false,
   },
   plugins: [
+    react(),
     lingui(),
-    react({
-      babel: {
-        plugins: ['@lingui/babel-plugin-lingui-macro', 'babel-plugin-react-compiler'],
-      },
+    babel({
+      presets: [reactCompilerPreset(), linguiPreset],
     }),
     tailwindcss(),
   ],
