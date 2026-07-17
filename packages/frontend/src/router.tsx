@@ -30,6 +30,7 @@ import { TeamMatchesTable } from 'csdm/ui/team/matches/team-matches-table';
 import { Demos } from 'csdm/ui/demos/demos';
 import { Search } from 'csdm/ui/search/search';
 import { BanStats } from 'csdm/ui/ban/stats/ban-stats';
+import { PinnedPlayer } from 'csdm/ui/player/pinned-player';
 import { ErrorBoundary } from 'csdm/ui/error-boundary';
 import { RoutePath } from 'csdm/ui/routes-paths';
 
@@ -68,6 +69,7 @@ export const router = createBrowserRouter(
       <Route path={RoutePath.Demos} element={<Demos />} />
       <Route path={RoutePath.Search} element={<Search />} />
       <Route path={RoutePath.Ban} element={<BanStats />} />
+      <Route path={RoutePath.PinnerPlayer} element={<PinnedPlayer />} />
     </Route>,
   ),
 );
