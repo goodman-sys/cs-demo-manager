@@ -29,7 +29,7 @@ export default defineConfig({
     lingui(),
     react({
       babel: {
-        plugins: ['babel-plugin-react-compiler'],
+        plugins: ['@lingui/babel-plugin-lingui-macro', 'babel-plugin-react-compiler'],
       },
     }),
     tailwindcss(),
