@@ -16,10 +16,10 @@ function App() {
   return (
     <ReduxProvider store={store}>
       <MotionConfig reducedMotion="user">
-        <LocaleProvider>
-          <ArgumentsProvider>
-            <ToastsProvider>
-              <SettingsProvider>
+        <SettingsProvider>
+          <LocaleProvider>
+            <ArgumentsProvider>
+              <ToastsProvider>
                 <WebSocketProvider>
                   <DialogProvider inertElementId={APP_ELEMENT_ID}>
                     <SettingsOverlayProvider>
@@ -27,10 +27,10 @@ function App() {
                     </SettingsOverlayProvider>
                   </DialogProvider>
                 </WebSocketProvider>
-              </SettingsProvider>
-            </ToastsProvider>
-          </ArgumentsProvider>
-        </LocaleProvider>
+              </ToastsProvider>
+            </ArgumentsProvider>
+          </LocaleProvider>
+        </SettingsProvider>
       </MotionConfig>
     </ReduxProvider>
   );
