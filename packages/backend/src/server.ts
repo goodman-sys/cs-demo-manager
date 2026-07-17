@@ -3,6 +3,7 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { config } from './config';
 import { initDatabase, closeDatabase } from './database/connection';
+import { registerMatchRoutes } from './routes/matches';
 
 const server = Fastify({
   logger: {
@@ -16,10 +17,8 @@ server.get('/api/health', () => {
   return { status: 'ok' };
 });
 
-// 路由注册 — 后续 Task 实现具体路由后取消注释
-// server.register(matchRoutes);
-// server.register(playerRoutes);
-// server.register(statsRoutes);
+// 路由注册
+registerMatchRoutes(server);
 
 async function start() {
   initDatabase();
