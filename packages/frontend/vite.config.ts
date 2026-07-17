@@ -15,7 +15,15 @@ export default defineConfig({
       csdm: srcFolderPath,
     },
   },
-  plugins: [react(), lingui(), tailwindcss()],
+  plugins: [
+    react({
+      babel: {
+        plugins: ['@lingui/babel-plugin-lingui-macro'],
+      },
+    }),
+    lingui(),
+    tailwindcss(),
+  ],
   server: {
     port: 5173,
     proxy: {
