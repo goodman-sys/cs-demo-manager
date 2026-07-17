@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, Navigate, Route } from 'react-router';
 import { createRoutesFromElements } from 'react-router';
-import { Root } from 'csdm/ui/bootstrap/root';
+import { Root } from './bootstrap/root';
 import { Matches } from 'csdm/ui/matches/matches';
 import { MatchLoader } from 'csdm/ui/match/match-loader';
 import { MatchOverview } from 'csdm/ui/match/overview/match-overview';
