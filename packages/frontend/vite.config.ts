@@ -15,6 +15,12 @@ export default defineConfig({
       csdm: srcFolderPath,
     },
   },
+  define: {
+    IS_PRODUCTION: false,
+    IS_DEV: true,
+    APP_VERSION: JSON.stringify('0.0.1-web'),
+    REACT_STRICT_MODE_ENABLED: false,
+  },
   plugins: [
     react({
       babel: {
